@@ -1,0 +1,16 @@
+import math
+def solution(A):
+    B = A.copy()
+    B.sort()
+    a = len(A)
+    if a == 0:
+        return -1
+    half = math.floor(a/2)
+    leader = B[half]
+    count = 0
+    for x in range(a):
+        if A[x] == leader:
+            count += 1
+    if count > half:
+        return A.index(leader)
+    return -1
