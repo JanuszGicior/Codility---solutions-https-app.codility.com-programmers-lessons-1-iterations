@@ -1,0 +1,21 @@
+def solution(A):
+   a = len(A)
+   stack = [0] * (50000)
+   result = []
+   deviders = 0
+   for x in range(a):
+       stack[A[x]] += 1
+
+   for y in range(a):
+        i = 1
+        deviders = 0
+        while(i * i < A[y]):
+            if A[y] % i == 0:
+                deviders += stack[i]
+                deviders += stack[A[y]//i]
+            i += 1
+        if (i * i == A[y]):
+            deviders += stack[i]
+        result.append(a-deviders)
+   return result
+
