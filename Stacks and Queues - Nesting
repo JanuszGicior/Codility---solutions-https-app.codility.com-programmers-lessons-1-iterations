@@ -1,0 +1,15 @@
+def solution(S):
+    s = len(S)
+    z = 0
+    if s == 0:
+        return 1
+    for x in range(s):
+        if S[x] == '(':
+            z +=1
+        elif S[x] == ')' and z == 0:
+            return 0
+        elif S[x] == ')' and z > 0:
+            z -= 1
+    if z == 0:
+        return 1
+    return 0
