@@ -1,0 +1,14 @@
+def solution(A):
+    if len(A) == 1:
+        return A[0]
+    minus = -1000001
+    max_ending = 0
+    max_slice = -1000001
+    for a in A:
+        max_ending = max(0,max_ending + a)
+        max_slice = max(max_slice, max_ending)
+        if 0 >= a > minus:
+            minus = a
+    if max_slice > 0:
+        return max_slice
+    return minus
