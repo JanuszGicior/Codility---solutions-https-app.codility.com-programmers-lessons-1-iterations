@@ -1,0 +1,8 @@
+def solution(A):
+    a = list(set(A))
+    a.sort()
+    b = a[0] * a[1] * a[-1]
+    c = a[-1] * a[-2] * a[-3]
+    resoult = max(b,c) 
+    return resoult
+    pass
