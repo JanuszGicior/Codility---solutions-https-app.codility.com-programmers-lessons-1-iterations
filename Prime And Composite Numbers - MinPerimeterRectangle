@@ -1,0 +1,20 @@
+def solution(N):
+    i = 1
+    result = 10000000000
+    stack = []
+    parimeter = 0
+    if N == 1 :
+        return 4
+    while i * i < N:
+        if N % i == 0:
+            stack.append(int(i))
+            stack.append(int(N/i))
+        i += 1
+    if i * i == N:
+        stack.append(i)
+        stack.append(i)
+    s = len(stack)
+    for i in range(1,s,2):
+        parimeter = 2 * (stack[i-1] + stack[i])
+        result = min(result, parimeter)
+    return result
