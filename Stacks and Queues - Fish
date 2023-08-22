@@ -1,0 +1,19 @@
+def solution(A,B):
+    fish = 0
+    stack = []
+    a = len(A)
+    for x in range(a):
+        if len(stack) == 0 and B[x] == 0:
+            fish += 1
+        elif B[x] == 1:
+            stack.append(A[x])
+            fish +=1
+        elif B[x] == 0 and len(stack) != 0:
+            fish +=1
+            if stack[-1] < A[x] :
+                while len(stack)!= 0 and stack[-1] < A[x]:
+                    stack.pop()
+                    fish -= 1
+            if len(stack) != 0 and stack[-1] > A[x]:
+                fish -= 1
+    return fish
