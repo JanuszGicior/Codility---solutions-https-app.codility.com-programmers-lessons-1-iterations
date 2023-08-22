@@ -1,0 +1,19 @@
+def solution(N, A):
+    n = len(A)
+    liczenie = [0] * (N+1)
+    b = [0] * N
+    for k in range(n):
+        if liczenie[A[k]-1] >= liczenie[N]:
+            if A[k] == N + 1:
+                liczenie[N] = max(liczenie)
+            else:
+                liczenie[A[k] - 1] += 1
+        elif liczenie[A[k]-1] < liczenie[N]:
+            liczenie[A[k]-1] = liczenie[N] + 1
+        
+    for i in range(len(liczenie)- 1):
+        if liczenie[i] < liczenie[N]:
+            b[i]=liczenie[N]
+        else:
+            b[i]=liczenie[i]
+    return b
