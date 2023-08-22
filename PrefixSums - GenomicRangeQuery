@@ -1,0 +1,30 @@
+def solution(S, P, Q):
+    c = []
+    for x in range(len(P)):
+        b="T"
+        a = (Q[x] - P[x]) +1
+        for y in range(a):
+            b = min(S[P[x]+y],b)
+        if b == "A":
+            c.append(1)
+        elif b == "C":
+            c.append(2)
+        elif b == "G":
+            c.append(3)
+        elif b == "T":
+            c.append(4)
+    return c
+    
+def solution(S, P, Q):
+    a = []
+    resoult = []
+    key = {'A':1,
+            'C':2,
+            'G':3,
+            'T':4}
+    for y in range(len(P)):
+        part = slice(P[y], Q[y]+1 ,1)
+        a.append(key[min(S[part])])       
+
+    
+    return a
