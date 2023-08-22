@@ -1,0 +1,8 @@
+def solution(A, B, K):
+    while A % K != 0:
+        A += 1
+    while B % K != 0:
+        B -= 1
+    C = B - A
+    D = (C / K) + 1
+    return int(D)
