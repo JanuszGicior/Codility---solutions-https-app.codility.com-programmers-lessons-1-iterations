@@ -1,0 +1,8 @@
+def solution(N, M):
+    a = N
+    if N == 1:
+        return 1
+    while N % M != 0:
+        N += a
+
+    return N // M
